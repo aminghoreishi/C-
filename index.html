@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+    <style>
+
+    </style>
+</head>
+
+
+<body class="bg-slate-800 text-white">
+    <div class="flex items-center min-h-screen justify-center">
+        <div class="p-10 w-[600px]">
+            <h1 class="text-[30px] text-center kn ">Convert °C to °F</h1>
+            <!-- <h1 class="text-[30px] text-center h11 " >convert c to f</h1>   -->
+            <div class="flex flex-col text-center justify-center mt-4 mb-10">
+                <div class="w-[100%]">
+                    <input
+                        class=" border-0   outline-0 ring-0 hover:outline-2 hover:transition-colors hover:outline-blue-500 text-black p-2 rounded-xl pl-2 "
+                        type="text" name="" id="" placeholder="°C">
+                </div>
+                <p class="mt-4"></p>
+                <p class="mt-4 hui"></p>
+
+            </div>
+
+
+            <div class="flex items-center justify-between">
+                <div class="">
+                    <button class="bg-green-800 shadow-2xl p-2 rounded-xl hover:bg-green-600 transition-colors"
+                        type="button" id="convert">Convert</button>
+                </div>
+                <div class="">
+                    <button class="bg-green-800 shadow-2xl p-2 rounded-xl hover:bg-green-600 transition-colors"
+                        type="button" id="rest">Rest</button>
+                </div>
+                <div class="">
+                    <button class="bg-green-800 shadow-2xl p-2 rounded-xl hover:bg-green-600 transition-colors"
+                        type="button" id="Reverse">Reverse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let inputt = document.querySelector('input');
+        let convert = document.getElementById('convert');
+        let h1 = document.querySelector('h1');
+        let h11 = document.querySelector('.h11');
+        let reverse = document.querySelector('#Reverse')
+        let inputval = inputt.value
+        let rest = document.querySelector('#rest')
+        let hui = document.querySelector('.hui')
+        let p = document.querySelector('p');
+
+
+
+
+        // let rt = false
+        // function Reverse() {
+        //     if (rt === true) {
+        //         h1.innerText = "convert c to f"
+        //         rt = false
+        //     }
+        //     else {
+        //         h1.innerText = "convert f to c"
+        //         rt = true
+        //     }
+        //     console.log(rt)
+
+        // }
+        document.title = "convert c to f"
+
+
+
+
+        let rt = false;
+        reverse.addEventListener('click', function () {
+            let hj = rt
+            if (inputt.value == NaN) {
+                alert("hello")
+            }
+            if (hj === true) {
+                h1.innerText = "Convert °C to °F"
+                inputt.setAttribute('placeholder', '°C')
+
+                rt = false
+            }
+            else {
+                h1.innerText = "Convert °F to °C"
+                inputt.setAttribute('placeholder', '°F')
+                document.title = "convert f to c"
+                rt = true
+            }
+        })
+        // let res = false
+        convert.addEventListener('click', function () {
+            // if (isNaN(inputt.value)) {
+            //     alert("has");
+            //     p.innerHTML="eror"
+            // } else {
+            //     alert("ni");
+            // }
+            if (inputt.value === '' || isNaN(inputt.value)) {
+
+                hui.innerHTML = "Incorrect"
+                hui.style.color = "red"
+                hui.style.display = "block"
+                p.style.display = "none"
+
+            }
+            else {
+                hui.style.display = "none"
+                if (inputt.placeholder == '°C') {
+                    // let i = res
+                    let u = Math.floor(inputt.value * 9 / 5 + 32)
+
+                    p.innerHTML = '<span>' + ' °F is ' + u + '<span>'
+                    p.style.display = "block"
+
+
+                }
+                else if (inputt.placeholder == '°F') {
+
+                    let h = inputt.value - 32 * 5 / 9
+                    p.innerHTML = '<span>' + ' °C is: ' + h.toFixed(2) + '<span>'
+                    p.style.display = "block"
+                }
+            }
+
+        })
+
+        rest.addEventListener('click', function () {
+            inputt.value = ''
+            p.innerHTML = ''
+            hui.innerHTML=""
+            
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
